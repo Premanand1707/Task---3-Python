@@ -1,0 +1,46 @@
+# Function to find all sub-lists with sum equal to zero
+def find_zero_sum_sublists(nums):
+    # Initialize an empty dictionary to store the prefix sums and their indices
+    prefix_sum_map = {}
+    # Initialize the prefix sum
+    prefix_sum = 0
+    # Initialize a list to store the sub-lists with zero sum
+    zero_sum_sublists = []
+
+    # Traverse through the list
+    for index, num in enumerate(nums):
+        # Add the current number to the prefix sum
+        prefix_sum += num
+
+        # Check if the prefix sum is zero
+        if prefix_sum == 0:
+            zero_sum_sublists.append(nums[:index + 1])
+
+        # If the prefix sum is seen before, it means there is a zero-sum sub-list
+        if prefix_sum in prefix_sum_map:
+            # Get all the indices where this prefix sum was seen before
+            start_indices = prefix_sum_map[prefix_sum]
+            for start_index in start_indices:
+                zero_sum_sublists.append(nums[start_index + 1: index + 1])
+
+        # Add the current index to the list of indices for the current prefix sum
+        if prefix_sum in prefix_sum_map:
+            prefix_sum_map[prefix_sum].append(index)
+        else:
+            prefix_sum_map[prefix_sum] = [index]
+
+    return zero_sum_sublists
+
+# Given list of integers
+nums = [4, 2, -3, 1, 6]
+
+# Call the function and store the result
+zero_sum_sublists = find_zero_sum_sublists(nums)
+
+# Print the result
+if zero_sum_sublists:
+    print("The sub-lists with sum equal to zero are:")
+    for sublist in zero_sum_sublists:
+        print(sublist)
+else:
+    print("There are no sub-lists with sum equal to zero.")
