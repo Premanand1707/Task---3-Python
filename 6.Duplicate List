@@ -1,0 +1,25 @@
+# Function to find duplicates in three lists
+def find_duplicates(list1, list2, list3):
+    # Convert lists to sets to find duplicates efficiently
+    set1 = set(list1)
+    set2 = set(list2)
+    set3 = set(list3)
+
+    # Find intersection of all three sets to get duplicates
+    duplicates = set1 & set2 & set3
+
+    # Convert the intersection set back to a list
+    duplicates_list = list(duplicates)
+
+    return duplicates_list
+
+# Given three lists
+list1 = [1, 2, 3, 4, 5, 2, 7]
+list2 = [5, 6, 7, 8, 9, 7]
+list3 = [7, 8, 9, 10, 7]
+
+# Call the function and store the result
+duplicates = find_duplicates(list1, list2, list3)
+
+# Print the result
+print(f"The duplicates in the three lists are: {duplicates}")
