@@ -1,0 +1,31 @@
+# Function to check if a number is prime
+def is_prime(n):
+    # If number is less than 2, it's not prime
+    if n < 2:
+        return False
+    # Check for factors from 2 to sqrt(n)
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+# Given list of numbers
+numbers = [10, 501, 22, 37, 100, 999, 87, 351]
+
+# Initialize a list to store prime numbers
+prime_numbers = []
+
+# Count of prime numbers
+prime_count = 0
+
+# Loop through each number in the list
+for number in numbers:
+    # Check if the number is prime
+    if is_prime(number):
+        prime_numbers.append(number)
+        prime_count += 1
+
+# Print the original list and prime numbers list
+print("Original list:", numbers)
+print("Prime numbers list:", prime_numbers)
+print("Total prime numbers:", prime_count)
