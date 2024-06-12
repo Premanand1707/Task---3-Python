@@ -1,0 +1,26 @@
+# Function to find the sum of the first and last digit of an integer
+def sum_first_last_digit(number):
+    # Convert number to positive (to handle negative numbers)
+    number = abs(number)
+
+    # Convert number to string to easily access digits
+    number_str = str(number)
+
+    # Get the first and last digit
+    first_digit = int(number_str[0])
+    last_digit = int(number_str[-1])
+
+    # Calculate the sum of the first and last digit
+    sum_digits = first_digit + last_digit
+
+    # Return the sum of first and last digit
+    return sum_digits
+
+# Input integer
+number = 12345
+
+# Call the function and store the result
+result = sum_first_last_digit(number)
+
+# Print the result
+print(f"The sum of the first and last digit of {number} is: {result}")
