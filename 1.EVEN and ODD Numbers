@@ -1,0 +1,19 @@
+# Given list of numbers
+numbers = [10, 501, 22, 37, 100, 999, 87, 351]
+
+# Initialize lists to store even and odd numbers
+even_numbers = []
+odd_numbers = []
+
+# Loop through each number in the list
+for number in numbers:
+    # Check if the number is even
+    if number % 2 == 0:
+        even_numbers.append(number)
+    else:
+        odd_numbers.append(number)
+
+# Print the lists
+print("Original list:", numbers)
+print("Even numbers:", even_numbers)
+print("Odd numbers:", odd_numbers)
