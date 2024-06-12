@@ -1,0 +1,31 @@
+# Function to find the first non-repeating element in a list
+def first_non_repeating_element(nums):
+    # Initialize an empty dictionary to count occurrences
+    count_dict = {}
+
+    # Traverse through the list to count occurrences of each element
+    for num in nums:
+        if num in count_dict:
+            count_dict[num] += 1
+        else:
+            count_dict[num] = 1
+
+    # Traverse through the list again to find the first non-repeating element
+    for num in nums:
+        if count_dict[num] == 1:
+            return num
+
+    # Return None if no non-repeating element is found
+    return None
+
+# Given list of integers
+numbers = [1, 2, 3, 4, 2, 1, 5, 6, 3]
+
+# Call the function and store the result
+result = first_non_repeating_element(numbers)
+
+# Print the result
+if result is not None:
+    print(f"The first non-repeating element is: {result}")
+else:
+    print("No non-repeating element found")
